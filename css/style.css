@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+header h1 {
+    text-align: center;
+    color: darkred;
+    font-weight: bolder;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.808);
+}
+
+body {
+    font-family: 'Kirang Haerang', cursive;
+    background-image: url('../images/bc.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#sec1 {
+    float: left;
+    width: 80%;
+    margin-left: 220px;
+    display: flex;
+}
+
+#sec2 {
+    float: left;
+    width: 50%;
+}
+
+main h3 {
+    text-align: center;
+}
+
+#Result-msg h3 {
+    text-align: left;
+}
+
+img {
+    display: inline-block;
+    width: 40%;
+    height: 300px;
+}
+
+ul {
+    width: 80%;
+}
+
+li {
+    font-size: 30px;
+    font-weight: bold;
+    list-style: none;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.925);
+    color: darkred;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 80px;
+}
