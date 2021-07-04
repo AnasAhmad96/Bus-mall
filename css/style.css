@@ -23,15 +23,29 @@ body {
 #sec1 {
     float: left;
     width: 80%;
-    margin-left: 220px;
-    display: flex;
+    margin-left: 210px;
+    display:block;
 }
-
+#sec1 audio{
+    margin-bottom: 100px;
+    margin-left: 5%;
+}
 #sec2 {
     float: left;
     width: 50%;
 }
-
+#sec2 ul {
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+#sec2 ul li {
+    font-size: 15px;
+    text-align: justify;
+    margin: 5px 0;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.699);
+    
+}
 main h3 {
     text-align: center;
 }
@@ -46,21 +60,11 @@ img {
     height: 300px;
 }
 
-ul {
-    width: 80%;
-}
-
-li {
-    font-size: 30px;
-    font-weight: bold;
-    list-style: none;
-}
-
 footer {
     background-color: rgba(0, 0, 0, 0.925);
     color: darkred;
     font-size: 20px;
     padding: 10px;
     text-align: center;
-    margin-top: 80px;
+    margin-top:600px;
 }
