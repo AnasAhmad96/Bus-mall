@@ -98,20 +98,5 @@ function renderList() {
   middleImageElement.addEventListener('click', handleClick);
   rightImageElement.addEventListener('click', handleClick);
 }
-// function renderimgs() {
-//   leftIndex = randomIndex();
-//   middleIndex = randomIndex();
-//   rightIndex = randomIndex();
 
-//   while (leftImageElement === middleImageElement
-//     || leftImageElement === rightImageElement
-//     || rightImageElement === middleImageElement) {
-//     leftImageElement = randomIndex();
-//     middleImageElement = randomIndex();
-//     rightImageElement = randomIndex();
-//   }
-//   leftImageElement.src = BusMall.gloArr[leftIndex].path;
-//   middleImageElement.src = BusMall.gloArr[middleIndex].path;
-//   rightImageElement.src = BusMall.gloArr[rightIndex].path;
-// }
-// renderimgs();
+// add local storage
