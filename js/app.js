@@ -169,3 +169,5 @@ function displayChart(){
     },
   });
 }
+
+// add local storage
