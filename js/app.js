@@ -143,6 +143,13 @@ function renderList() {
 
   }
 
+  leftImageElement.addEventListener('click', handleClick);
+  middleImageElement.addEventListener('click', handleClick);
+  rightImageElement.addEventListener('click', handleClick);
+  leftImageElement.removeEventListener('click', handleClick);
+  middleImageElement.removeEventListener('click', handleClick);
+  rightImageElement.removeEventListener('click', handleClick);
+
 }
 
 console.log(prodVotes);
@@ -168,6 +175,7 @@ function displayChart(){
       }]
     },
   });
+
 }
 
 // add local storage
