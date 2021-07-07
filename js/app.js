@@ -1,6 +1,6 @@
 'use stirct';
 
-let prodNames =[];
+let prodNames = [];
 let prodVotes = [];
 let prodShown = [];
 BusMall.lastShown = [];
@@ -52,8 +52,8 @@ const img3 = document.getElementById('right-image');
 
 
 let leftIndex;
-let middleIndex ;
-let rightIndex ;
+let middleIndex;
+let rightIndex;
 
 
 function renderimgs() {
@@ -66,11 +66,11 @@ function renderimgs() {
 
 
   while (leftIndex === middleIndex
-        || leftIndex === rightIndex
-        || rightIndex === middleIndex
-        || BusMall.lastShown.includes(leftIndex)
-        || BusMall.lastShown.includes(middleIndex)
-        || BusMall.lastShown.includes(rightIndex)) {
+    || leftIndex === rightIndex
+    || rightIndex === middleIndex
+    || BusMall.lastShown.includes(leftIndex)
+    || BusMall.lastShown.includes(middleIndex)
+    || BusMall.lastShown.includes(rightIndex)) {
     leftIndex = randomIndex();
     middleIndex = randomIndex();
     rightIndex = randomIndex();
@@ -101,20 +101,20 @@ let resultBtn;
 function handleClick(event) {
   counter++;
   console.log(event);
-  if(maxAttempts >= counter){
+  if (maxAttempts >= counter) {
     if (event.target.id === 'left-image') {
       BusMall.gloArr[leftIndex].votes++;
-    }else if(event.target.id === 'middle-image'){
+    } else if (event.target.id === 'middle-image') {
       BusMall.gloArr[middleIndex].votes++;
-    }else if(event.target.id === 'right-image'){
+    } else if (event.target.id === 'right-image') {
       BusMall.gloArr[rightIndex].votes++;
-    }else{
+    } else {
       counter--;
       return;
     }
     renderimgs();
   }
-  else{
+  else {
 
     resultBtn = document.getElementById('btn');
     resultBtn.addEventListener('click', handleShow);
@@ -149,7 +149,7 @@ function renderList() {
 console.log(prodVotes);
 
 
-function displayChart(){
+function displayChart() {
 
   let ctx = document.getElementById('myChart');
   let chartColors = ['#e6194b', '#3cb44b', '#ffe119', '#0082c8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#d2f53c', '#fabebe', '#008080', '#e6beff', '#aa6e28', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000080', '#000000'];
@@ -162,7 +162,7 @@ function displayChart(){
         data: prodVotes,
         backgroundColor: chartColors,
         borderWidth: 1,
-      },{
+      }, {
         label: 'Times Displayed',
         data: prodShown,
         borderWidth: 1,
@@ -187,12 +187,8 @@ function displayChart(){
 //   const parsedOrder = JSON.parse(data);
 //   console.log(parsedOrder);
 //   if (parsedOrder) {
-
 //     BusMall.gloArr = parsedOrder;
-
 //   }
 // }
 
 // getFromLs();
-
-
