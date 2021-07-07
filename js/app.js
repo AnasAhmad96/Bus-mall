@@ -5,6 +5,14 @@ let prodVotes = [];
 let prodShown = [];
 BusMall.lastShown = [];
 
+// add to local storage (make a prompt)
+let setName = prompt('Enter Your name');
+localStorage.setItem('Name', setName);
+if (localStorage.getItem('Name') === null) {
+  let saveName = localStorage.getItem('Name', setName);
+  console.log(localStorage);
+}
+
 const images = document.getElementById('Result-msg');
 const maxAttempts = 25;
 
@@ -49,7 +57,6 @@ console.log(prodNames);
 const img1 = document.getElementById('left-image');
 const img2 = document.getElementById('middle-image');
 const img3 = document.getElementById('right-image');
-
 
 let leftIndex;
 let middleIndex;
@@ -119,8 +126,6 @@ function handleClick(event) {
     resultBtn = document.getElementById('btn');
     resultBtn.addEventListener('click', handleShow);
     imgSection.removeEventListener('click', handleClick);
-    // saveToLs();
-
   }
 }
 
@@ -138,6 +143,7 @@ function renderList() {
     prodVotes.push(BusMall.gloArr[i].votes);
     prodShown.push(BusMall.gloArr[i].views);
     let li = document.createElement('li');
+
     ul.appendChild(li);
     li.textContent = `${BusMall.gloArr[i].name} has this number of votes ( ${BusMall.gloArr[i].votes} ), and has showed up ( ${BusMall.gloArr[i].views} )`;
 
@@ -171,24 +177,22 @@ function displayChart() {
   });
 }
 
-// add local storage
+// add local storage by function
 
-// function saveToLs() {
-
-//   const convertedArr = JSON.stringify(BusMall.gloArr);
-//   localStorage.setItem('ProductsVote', convertedArr);
-
-// }
+function saveToLs() {
+  let convertedArr = JSON.stringify(BusMall.gloArr);
+  localStorage.setItem('ProductsVote', convertedArr);
+}
+saveToLs();
 
 
 // function getFromLs() {
-//   const data = localStorage.getItem('ProductsVote');
+//   let data = localStorage.getItem('ProductsVote');
 //   console.log(data);
-//   const parsedOrder = JSON.parse(data);
+//   let parsedOrder = JSON.parse(data);
 //   console.log(parsedOrder);
 //   if (parsedOrder) {
 //     BusMall.gloArr = parsedOrder;
 //   }
 // }
-
 // getFromLs();
