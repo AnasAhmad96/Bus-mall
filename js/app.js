@@ -97,6 +97,9 @@ function renderList() {
   leftImageElement.addEventListener('click', handleClick);
   middleImageElement.addEventListener('click', handleClick);
   rightImageElement.addEventListener('click', handleClick);
+  leftImageElement.removeEventListener('click', handleClick);
+  middleImageElement.removeEventListener('click', handleClick);
+  rightImageElement.removeEventListener('click', handleClick);
 }
 // function renderimgs() {
 //   leftIndex = randomIndex();
