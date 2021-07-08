@@ -1,14 +1,17 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 'use stirct';
 
-let prodNames = [];
-let prodVotes = [];
-let prodShown = [];
+let prodNames = []; //clear embty array to save names
+let prodVotes = []; //clear embty array to save number of votes
+let prodShown = [];//clear embty array to save all result
 BusMall.lastShown = [];
 
 // add to local storage (make a prompt)
 let setName = prompt('Enter Your name');
 localStorage.setItem('Name', setName);
 if (localStorage.getItem('Name') === null) {
+  // eslint-disable-next-line no-unused-vars
   let saveName = localStorage.getItem('Name', setName);
   console.log(localStorage);
 }
@@ -18,7 +21,7 @@ const maxAttempts = 25;
 
 let counter = 0;
 
-function BusMall(name, source) {
+function BusMall(name, source) { // constructor function
   this.name = name;
   this.source = source;
   this.views = 0;
@@ -28,7 +31,7 @@ function BusMall(name, source) {
 
 }
 BusMall.gloArr = [];
-new BusMall('bag', '/images/bag.jpg');
+new BusMall('bag', '/images/bag.jpg'); // store the name and path in concstructor function using array
 new BusMall('banana', '/images/banana.jpg');
 new BusMall('bathroom', '/images/bathroom.jpg');
 new BusMall('boots', '/images/boots.jpg');
@@ -48,9 +51,10 @@ new BusMall('unicorn', '/images/unicorn.jpg');
 new BusMall('water-can', '/images/water-can.jpg');
 new BusMall('wine-glass', '/images/wine-glass.jpg');
 
-function randomIndex() {
+function randomIndex() { // to get random number between 0 and 1
   return Math.floor(Math.random() * BusMall.gloArr.length);
 }
+
 
 console.log(prodNames);
 
@@ -63,7 +67,7 @@ let middleIndex;
 let rightIndex;
 
 
-function renderimgs() {
+function renderimgs() { //DOM By JS
   leftIndex = randomIndex();
   middleIndex = randomIndex();
   rightIndex = randomIndex();
@@ -105,7 +109,7 @@ imgSection.addEventListener('click', handleClick);
 let resultBtn;
 
 
-function handleClick(event) {
+function handleClick(event) { // To click on imge and change it.
   counter++;
   console.log(event);
   if (maxAttempts >= counter) {
@@ -136,7 +140,7 @@ function handleShow() {
   resultBtn.removeEventListener('click', handleShow);
 }
 
-function renderList() {
+function renderList() { // for list result
   const ul = document.getElementById('unlist');
 
   for (let i = 0; i < BusMall.gloArr.length; i++) {
@@ -155,7 +159,7 @@ function renderList() {
 console.log(prodVotes);
 
 
-function displayChart() {
+function displayChart() { // for display chart for once time.
 
   let ctx = document.getElementById('myChart');
   let chartColors = ['#e6194b', '#3cb44b', '#ffe119', '#0082c8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#d2f53c', '#fabebe', '#008080', '#e6beff', '#aa6e28', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000080', '#000000'];
