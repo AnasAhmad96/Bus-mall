@@ -7,18 +7,8 @@ let prodVotes = []; //clear embty array to save number of votes
 let prodShown = [];//clear embty array to save all result
 BusMall.lastShown = [];
 
-// add to local storage (make a prompt)
-let setName = prompt('Enter Your name');
-localStorage.setItem('Name', setName);
-if (localStorage.getItem('Name') === null) {
-  // eslint-disable-next-line no-unused-vars
-  let saveName = localStorage.getItem('Name', setName);
-  console.log(localStorage);
-}
-
 const images = document.getElementById('Result-msg');
 const maxAttempts = 25;
-
 let counter = 0;
 
 function BusMall(name, source) { // constructor function
@@ -28,7 +18,6 @@ function BusMall(name, source) { // constructor function
   this.votes = 0;
   BusMall.gloArr.push(this);
   prodNames.push(this.name);
-
 }
 BusMall.gloArr = [];
 new BusMall('bag', '/images/bag.jpg'); // store the name and path in concstructor function using array
@@ -130,16 +119,14 @@ function handleClick(event) { // To click on imge and change it.
     resultBtn = document.getElementById('btn');
     resultBtn.addEventListener('click', handleShow);
     imgSection.removeEventListener('click', handleClick);
+    saveToLs();
   }
 }
-
 function handleShow() {
   renderList();
   displayChart();
-
   resultBtn.removeEventListener('click', handleShow);
 }
-
 function renderList() { // for list result
   const ul = document.getElementById('unlist');
 
@@ -150,7 +137,6 @@ function renderList() { // for list result
 
     ul.appendChild(li);
     li.textContent = `${BusMall.gloArr[i].name} has this number of votes ( ${BusMall.gloArr[i].votes} ), and has showed up ( ${BusMall.gloArr[i].views} )`;
-
 
   }
 
@@ -184,19 +170,20 @@ function displayChart() { // for display chart for once time.
 // add local storage by function
 
 function saveToLs() {
-  let convertedArr = JSON.stringify(BusMall.gloArr);
+
+  const convertedArr = JSON.stringify(BusMall.gloArr);
   localStorage.setItem('ProductsVote', convertedArr);
+
 }
-saveToLs();
+function getFromLs() {
 
+  const data = localStorage.getItem('ProductsVote');
+  console.log(data);
+  const parsedOrder = JSON.parse(data);
+  console.log(parsedOrder);
+  if (parsedOrder) {
+    BusMall.gloArr = parsedOrder;
+  }
 
-// function getFromLs() {
-//   let data = localStorage.getItem('ProductsVote');
-//   console.log(data);
-//   let parsedOrder = JSON.parse(data);
-//   console.log(parsedOrder);
-//   if (parsedOrder) {
-//     BusMall.gloArr = parsedOrder;
-//   }
-// }
-// getFromLs();
+}
+getFromLs();
